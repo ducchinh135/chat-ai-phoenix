@@ -83,14 +83,14 @@
   <body>
     <main
       id="app"
-      class="min-h-screen bg-gray-100 py-8 px-6 sm:p-8 bg-background relative"
+      class="relative min-h-screen px-6 py-8 bg-gray-100 sm:p-8 bg-background"
     >
       <!-- Hình ảnh bên trái -->
       <div class="fixed left-0 top-0 h-full w-[0%] sm:w-1/6 md:w-1/5 xl:w-1/4">
         <img
           src="./image/banner.jpg"
           alt="Left Image"
-          class="w-full h-full object-cover"
+          class="object-cover w-full h-full"
         />
       </div>
       <!-- Nội dung chính -->
@@ -98,12 +98,12 @@
         class="max-w-2xl mx-auto relative w-[100%] sm:w-[50%] md:w-[60%] lg:w-[60%] xl:w-[80%]"
       >
         <div class="relative">
-          <div class="mb-4 flex items-center justify-center">
+          <div class="flex items-center justify-center mb-4">
             <h1 class="w-[60%] sm:w-[100%] text-3xl font-bold text-center pr-2">
               Trợ lý bán hàng Phoenix
             </h1>
             <img
-              class="w-14 h-14 rounded-full"
+              class="rounded-full w-14 h-14"
               src="./image/phoenixLogo.png"
               alt="ChatGPT Icon"
             />
@@ -111,13 +111,13 @@
           <!-- Button cài đặt -->
           <!-- <button
             @click="toggleSettingsPopup"
-            class="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700"
+            class="absolute p-2 text-gray-500 top-4 right-4 hover:text-gray-700"
             aria-label="Cài đặt"
           >
             <i class="fas fa-cog fa-lg"></i>
           </button> -->
 
-          <div class="bg-white shadow rounded-lg p-1 sm:p-6">
+          <div class="p-1 bg-white rounded-lg shadow sm:p-6">
             <div class="flow-root">
               <div class="mt-2 mb-2 sm:mt-4">
                 <!-- Chat Messages -->
@@ -133,7 +133,7 @@
                     >
                       <div
                         v-if="message.role === 'user'"
-                        class="relative p-2 sm:p-4 bg-gray-100 rounded-lg shadow-md break-normal whitespace-pre-line"
+                        class="relative p-2 break-normal whitespace-pre-line bg-gray-100 rounded-lg shadow-md sm:p-4"
                       >
                         <span v-if="message.role === 'user'" class="font-bold"
                           >Bạn:</span
@@ -179,7 +179,7 @@
                   <!-- Typing Indicator -->
                   <!-- <li v-if="isTyping" class="py-3 sm:py-4">
                     <div
-                      class="flex items-center space-x-4 text-left justify-start"
+                      class="flex items-center justify-start space-x-4 text-left"
                     >
                       <div class="flex-shrink-0">
                         <img
@@ -205,13 +205,13 @@
                     <textarea
                       v-model="userInput"
                       placeholder="Điền câu hỏi của bạn..."
-                      class="flex-1 rounded-md shadow-sm p-2 w-full h-auto resize-none mr-1"
+                      class="flex-1 w-full h-auto p-2 mr-1 rounded-md shadow-sm resize-none"
                       rows="1"
                       @keyup.enter="sendMessage"
                     ></textarea>
                     <button
                       type="submit"
-                      class="px-4 py-2 bg-amber-200 text-black rounded-md hover:bg-amber-300 flex items-center"
+                      class="flex items-center px-4 py-2 text-black rounded-md bg-amber-200 hover:bg-amber-300"
                     >
                       <img
                         class="w-4 h-4"
@@ -232,7 +232,7 @@
         <img
           src="./image/phuonghoang.png"
           alt="Right Image"
-          class="w-full h-full object-cover"
+          class="object-cover w-full h-full"
         />
       </div>
 
@@ -243,7 +243,7 @@
         @click="closeSettingsPopup"
       ></div>
       <div class="popup w-[50%]" :class="{ show: showPopup }">
-        <h2 class="text-xl font-bold mb-4">Cài đặt</h2>
+        <h2 class="mb-4 text-xl font-bold">Cài đặt</h2>
         <textarea
           v-model="settingsText"
           class="w-full h-32 p-2 border border-gray-300 rounded-md"
@@ -252,13 +252,13 @@
         <div class="mt-4 text-right">
           <button
             @click="saveSettings"
-            class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
           >
             Xác nhận
           </button>
           <button
             @click="closeSettingsPopup"
-            class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 ml-2"
+            class="px-4 py-2 ml-2 text-white bg-gray-500 rounded-md hover:bg-gray-600"
           >
             Hủy
           </button>
@@ -269,7 +269,7 @@
     <script>
       const { createApp, ref, nextTick } = Vue;
 
-      const apiKey = "app-gLNrewdFnF09FOplM33bFoZe";
+      const apiKey = "app-kxvt9AZLoXbOW90jUpyNK9kI";
 
       createApp({
         setup() {
@@ -316,7 +316,7 @@
               };
 
               const response = await fetch(
-                "https://api.dify.ai/v1/chat-messages",
+                "http://dify.phoenixtech.vn/v1/chat-messages",
                 {
                   method: "POST",
                   headers: {
